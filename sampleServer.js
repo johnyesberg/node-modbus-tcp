@@ -27,8 +27,8 @@ modbusServer.on('read-holding-registers', readHoldingRegisters);
 modbusServer.on('read-coils',readCoils);
 modbusServer.on('write-multiple-registers',writeRegisters);
 
-function readHoldingRegisters(from,to,reply) {
-    console.log('Read holding registers '+from+'-'+to);
+function readHoldingRegisters(from,to,reply,data) {
+    console.log('Read holding registers '+from+'-'+to+' from unitId '+data.unitId);
     var values = [1,6,3,9]; // sample values just to see if it works.
     return reply(null,bufferify(values));
 }
